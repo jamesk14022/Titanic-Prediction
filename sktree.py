@@ -27,7 +27,7 @@ preds = tree.predict(x_test_final)
 acc = accuracy_score(y_test_final, preds)
 print("Accuracy on pre RFE testing data: %.2f%%" % (acc * 100.0))
 
-tree_rfe = RFECV(tree, step = 1, scoring = 'accuracy')
+tree_rfe = RFECV(tree, step = 1, scoring = 'neg_mean_absolute_error')
 fit = tree_rfe.fit(x_train_final, y_train_final)
 
 #PLot # of features selected vs. Model Score
